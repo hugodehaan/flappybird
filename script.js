@@ -1,15 +1,16 @@
-var x, y;
-function setup() {
-	createCanvas(500, 400);
-
-  x=0;
-  y=200;
+let
+function setup(){
+  createCanvas(700,600);
+  ball = new Ball();
 }
+class Ball{
+  
+  constructor(x=50, y= height/2, g=0,6, v=0, l=-20 ) {
+    this.x = x;
+    this.y = y;
+    this.gravity = g;
+    this.velocity = v;
+    this.lift = l;
 
-function draw(){
-  background (255);
-  ellipse (x,y,35,35);
-  x=100;
-  y=200;
+  }
 }
-
