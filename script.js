@@ -7,9 +7,20 @@ class Bird {
     this.velocity = 0;
   }
 
+
   show() {
     fill(255);
     ellipse(this.x, this.y, 32, 32);
+  }
+
+  update = function(){
+    this.velocity += this.gravity;
+    this.y += this.velocity;
+
+    if (this.y > height) {
+      this.y = height;
+      this.velocity = 0;
+    }
   }
 }
 
@@ -22,5 +33,6 @@ function setup() {
 
 function draw() {
   background(100);
+  bird.update();
   bird.show();
 }
