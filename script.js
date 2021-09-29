@@ -16,7 +16,7 @@ class Bird {
 
   up = function() {
     this.velocity += this.lift;
-    Println(this.velocity);
+    //Println(this.velocity);
   }
 
   update = function(){
