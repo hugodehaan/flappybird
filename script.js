@@ -42,10 +42,12 @@ var pipes = [];
 function setup() {
   createCanvas(600, 500);
   bird = new Bird(30);
+  pipes.push(new pipe());
 }
 
-function pipe(){
-  this.top = random(height/2);
+class Pipe {
+  constructor(top, bottom, x, w, speed)
+  top = random(height/2);
   this.bottom = random(height/2);
   this.x = width;
   this.w = 20;
@@ -64,12 +66,13 @@ function pipe(){
 
 function draw() {
   background(100);
-  
- 
-  
   bird.update();
   bird.show(); 
  
+ for (var i = 0; i < pipes.length; i++) {
+   pipes[i].show();
+   pipes[i].update();
+ }
 }
 
 function keyPressed() {
