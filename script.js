@@ -37,21 +37,43 @@ class Bird {
 }
 
 var bird;
+var pipes = [];
 
 function setup() {
-  createCanvas(400, 600);
+  createCanvas(600, 500);
   bird = new Bird(30);
+}
+
+function pipe(){
+  this.top = random(height/2);
+  this.bottom = random(height/2);
+  this.x = width;
+  this.w = 20;
+  this.speed = 5;
+
+  show = function(){
+    fill(255);
+    rect(this.x, 0, this.w, this.top);
+    rect(this.x, height-this.bottom, this.w, this.bottom);
+  }
+
+  update = function(){
+    this.x -= this.speed;
+  }
 }
 
 function draw() {
   background(100);
+  
+ 
+  
   bird.update();
-  bird.show();
+  bird.show(); 
+ 
 }
 
 function keyPressed() {
   if (key == ' ') {
     bird.up();
-
   }
 }
