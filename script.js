@@ -47,10 +47,10 @@ function setup() {
 
 class Pipe {
   constructor(top, bottom, x, w, speed){
-  this.top = random(height/2);
-  this.bottom = random(height/2);
+  this.top = random(height/2-5);
+  this.bottom = random(height/2-5);
   this.x = width;
-  this.w = 20;
+  this.w = 50;
   this.speed = 5;
   }
 
@@ -64,14 +64,16 @@ class Pipe {
   update = function(){
     this.x -= this.speed;
   }
+
 }
 
 function draw() {
   background(100);
   bird.update();
   bird.show(); 
+  
 
- 
+
  for (var i = 0; i < pipes.length; i++) {
    pipes[i].show();
    pipes[i].update();
