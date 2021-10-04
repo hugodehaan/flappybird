@@ -42,16 +42,18 @@ var pipes = [];
 function setup() {
   createCanvas(600, 500);
   bird = new Bird(30);
-  pipes.push(new pipe());
+  pipes.push(new Pipe());
 }
 
 class Pipe {
-  constructor(top, bottom, x, w, speed)
-  top = random(height/2);
+  constructor(top, bottom, x, w, speed){
+  this.top = random(height/2);
   this.bottom = random(height/2);
   this.x = width;
   this.w = 20;
   this.speed = 5;
+  }
+
 
   show = function(){
     fill(255);
@@ -68,10 +70,17 @@ function draw() {
   background(100);
   bird.update();
   bird.show(); 
+
  
  for (var i = 0; i < pipes.length; i++) {
    pipes[i].show();
    pipes[i].update();
+  
+ }
+ 
+ if(frameCount % 100 ==0){
+   pipe = new Pipe(600);
+   pipes.push(pipe);
  }
 }
 
