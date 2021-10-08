@@ -120,7 +120,7 @@ function draw(){
 
 
 function menu() {
-  background("white");
+  background("yellow");
   text("MENU", 25, 45);
   text("1. start", 25, 65);
   text("2. game over", 25, 85);
