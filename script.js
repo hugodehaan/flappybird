@@ -67,7 +67,7 @@ class Pipe {
 
 }
 
-function draw() {
+function game() {
   background(100);
   bird.update();
   bird.show(); 
@@ -77,17 +77,60 @@ function draw() {
  for (var i = 0; i < pipes.length; i++) {
    pipes[i].show();
    pipes[i].update();
-  
  }
  
  if(frameCount % 100 ==0){
    pipe = new Pipe(600);
    pipes.push(pipe);
  }
-}
 
+}
 function keyPressed() {
+  if (keyCode == 49) {
+    gameState = 1;
+  }
+
+  if (keyCode == 50) {
+    gameState = 2;
+  }
+
+  if (keyCode == 51) {
+    gameState = 0;
+  }
   if (key == ' ') {
     bird.up();
   }
+}
+
+
+
+var gameState = 0;
+function draw(){
+  text("gameState"+ gameState, 25,25);
+  if(gameState == 0){
+    menu();
+  }
+  if (gameState == 2){
+    gameOver();
+  }
+  if (gameState == 1){
+    game();
+  }
+}
+
+
+function menu() {
+  background("white");
+  text("MENU", 25, 45);
+  text("1. start", 25, 65);
+  text("2. game over", 25, 85);
+  text("3. terug naar menu", 25, 105);
+}
+
+
+
+function gameOver() {
+  background("blue");
+  text("GAME OVER", 25, 45);
+  x = 0;
 }
