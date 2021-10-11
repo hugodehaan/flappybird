@@ -141,7 +141,8 @@ function menu() {
 }
 
 function gameOver() {
-  background("blue");
-  text("GAME OVER", 25, 45);
+  background("white");
+  text("GAME OVER", 250, 250);
+  text("press 1 to replay", 250, 300)
   x = 0;
 }
