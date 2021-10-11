@@ -48,7 +48,8 @@ function setup() {
 class Pipe {
   constructor(top, bottom, x, w, speed){
   this.top = random(height/2-5);
-  this.bottom = random(height/2-5);
+  this.bottom = this.top + 200
+  this.buis = height - this.bottom
   this.x = width;
   this.w = 50;
   this.speed = 5;
@@ -56,9 +57,17 @@ class Pipe {
 
 
   show = function(){
-    fill("green");
+    if (this.x < 64 && this.x > 32) {
+      if (this.bottom <= bird.y || this.top >= bird.y) {
+       gameState = 2;
+      }
+    }
+    else{
+     fill("green");
+    }
+
     rect(this.x, 0, this.w, this.top);
-    rect(this.x, height-this.bottom, this.w, this.bottom);
+    rect(this.x, this.bottom, this.w, this.buis);
   }
 
   update = function(){
