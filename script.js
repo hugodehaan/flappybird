@@ -56,7 +56,7 @@ class Pipe {
 
 
   show = function(){
-    fill(255);
+    fill("green");
     rect(this.x, 0, this.w, this.top);
     rect(this.x, height-this.bottom, this.w, this.bottom);
   }
@@ -67,8 +67,12 @@ class Pipe {
 
 }
 
+function preload(){
+  img1 = loadImage('img/flappybird.png');
+}
+
 function game() {
-  background(100);
+  background(img1);
   bird.update();
   bird.show(); 
   
@@ -126,8 +130,6 @@ function menu() {
   text("2. game over", 25, 85);
   text("3. terug naar menu", 25, 105);
 }
-
-
 
 function gameOver() {
   background("blue");
