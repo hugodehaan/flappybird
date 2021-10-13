@@ -11,7 +11,7 @@ class Bird {
 
   show() {
     fill(255);
-    ellipse(this.x, this.y, 32, 32);
+    image(img2, this.x, this.y, 32, 32)
   }
 
   up = function() {
@@ -78,6 +78,7 @@ class Pipe {
 
 function preload(){
   img1 = loadImage('img/flappybird.png');
+  img2 = loadImage('img/birds.png');
 }
 
 function game() {
